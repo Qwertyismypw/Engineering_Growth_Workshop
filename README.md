@@ -13,8 +13,8 @@ Sandbox for Improving code development
 3. https://www.codecademy.com/ - ***Very Basic***
 4. https://codingbat.com/java - ***Bare bones, but will teach you logic like its nobodies business - Java & Python***
 5. https://www.hackerrank.com/ - ***Single handedly best site for most coding needs - Essentially every language - Coding tests practice - Jobs actually recruit from this site and use it for interviews***
-6. https://www.tutorialspoint.com/java/java_documentation.htm - ***Good place to find basica functionality for Java***
-7. https://www.tutorialspoint.com/python/index.htm - ***Good place to find basica functionality for Python***
+6. https://www.tutorialspoint.com/java/java_documentation.htm - ***Good place to find basic functionality for Java***
+7. https://www.tutorialspoint.com/python/index.htm - ***Good place to find basic functionality for Python***
 8. ***I'll add more as I think of it - Feel free to add anything either of you find***
 
 
