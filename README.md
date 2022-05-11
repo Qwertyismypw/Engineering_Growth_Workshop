@@ -9,13 +9,13 @@ Sandbox for Improving code development
 ### Links that may help as you learn
 
 1. https://www.markdownguide.org/cheat-sheet/
-2. https://stackexchange.com/ | https://stackoverflow.com/ - ***Use these sites to ask questions or find answers to questions
-3. https://www.codecademy.com/ - ***Very Basic
-4. https://codingbat.com/java - ***Bare bones, but will teach you logic like its nobodies business - Java & Python
-5. https://www.hackerrank.com/ - ***Single handedly best site for most coding needs - Essentially every language - Coding tests practice - Jobs actually recruit from this site and use it for interviews
-6. https://www.tutorialspoint.com/java/java_documentation.htm - ***Good place to find basica functionality for Java
-7. https://www.tutorialspoint.com/python/index.htm - ***Good place to find basica functionality for Python
-8. ***I'll add more as I think of it - Feel free to add anything either of you find
+2. https://stackexchange.com/ | https://stackoverflow.com/ - ***Use these sites to ask questions or find answers to questions***
+3. https://www.codecademy.com/ - ***Very Basic***
+4. https://codingbat.com/java - ***Bare bones, but will teach you logic like its nobodies business - Java & Python***
+5. https://www.hackerrank.com/ - ***Single handedly best site for most coding needs - Essentially every language - Coding tests practice - Jobs actually recruit from this site and use it for interviews***
+6. https://www.tutorialspoint.com/java/java_documentation.htm - ***Good place to find basica functionality for Java***
+7. https://www.tutorialspoint.com/python/index.htm - ***Good place to find basica functionality for Python***
+8. ***I'll add more as I think of it - Feel free to add anything either of you find***
 
 
 ### Once you get further, I'll put some code on my website and add you as contributors to it
