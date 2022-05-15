@@ -1,0 +1,118 @@
+public class Time extends Date {
+
+   //Variables
+
+	private int mils;
+	private int s;
+	private int m;
+	private int h;
+	private boolean dn;
+   
+   Date d= new Date();
+   
+   //Constructors
+   
+
+	
+	public Time(int x, int y, boolean t, Date date){
+		this.h=x;
+		this.m=y;
+      this.s=0;
+      this.mils=0;
+		this.dn=t;
+      this.d=date;
+	}
+	public Time(int x, int y, int z, boolean t, Date date){
+		this.h=x;
+		this.m=y;
+		this.s=z;
+      this.mils=0;
+		this.dn=t;
+      this.d=date;
+	}
+	
+	public Time(int x, int y, int z, int w, boolean t, Date date){
+		this.h=x;
+		this.m=y;
+		this.s=z;
+		this.mils=w;
+		this.dn=t;
+      this.d=date;
+	}
+   
+   //Setters
+	
+		public void setH(int x){
+		this.h=x;
+	}
+	
+		public void setM(int x){
+		this.m=x;
+	}
+	
+		public void setS(int x){
+		this.s=x;
+	}
+	
+		public void setMils(int x){
+		this.mils=x;
+	}
+	
+		public void setDn(boolean d){
+		this.dn=d;	
+	}
+   
+   //Getters
+	
+		public int getH(){
+		return this.h;
+	}
+	
+		public int getM(){
+		return this.m;
+	}
+	
+		public int getS(){
+		return this.s;	
+	}
+	
+		public int getMils(){
+		return this.mils;	
+	}
+	
+		public boolean getDn(){
+		return this.dn;	
+	}
+   
+   //Action
+	
+		public void advance(){
+      this.mils++;
+		if(this.mils>=1000){
+			this.s+=1;
+			this.mils=0;
+		}
+		if(this.s>=60){
+			this.m+=1;
+			this.s=0;
+		}
+		if(this.m>=60){
+			this.h+=1;
+			this.m=0;
+         if(this.h==12){
+            if(this.dn){
+               this.dn=false;
+            }else{
+               this.dn=true;
+               this.d.advance();
+            }
+         }
+		}
+		if(this.h==13){
+			this.h=1;
+		}
+      
+	}
+	
+	
+}
