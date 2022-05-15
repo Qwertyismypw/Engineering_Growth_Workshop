@@ -1,0 +1,12 @@
+public class testClock{
+   public static void main(String[] args){
+      Date date = new Date(28,2,2020);
+      
+      Time time = new Time(12,0, false, date);
+      while(date.getM()<3){
+      time.advance();
+      System.out.println(time.getH() + ":" + time.getM() + ":" + time.getS() + ":" + time.getMils() + ":" + time.getDn());
+      System.out.println(date.getD() + " " + date.getM() + " " + date.getStrM());
+      }
+   }
+}
