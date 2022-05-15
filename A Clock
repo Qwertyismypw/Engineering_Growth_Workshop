@@ -14,6 +14,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.shape.Circle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +26,10 @@ public class Clock extends Application{
    String dn;
    String tz;
    String date;
+   
+   //Time and Date
+   Time t;
+   Date d;
    
    //Scenes
    private Scene mainScene,editScene,displayScene;
@@ -48,8 +53,9 @@ public class Clock extends Application{
    //editScene variables
    private Label leTimezone,leTime,leDate;
    private Button set;
-   private Spinner<String> uTimzone,uDn,uMonth;
-   private Spinner<Integer> uHour,uMin,uDay,uYear;
+   private HBox timezHbox,timeHbox,dateHbox;
+   private VBox eVBox;
+   private Spinner<Integer> uHour,uMin,uDay,uYear,uMonth;
    
    //displayScene variables
    
@@ -81,8 +87,78 @@ public class Clock extends Application{
       borderPane.setCenter(mVBox);
       mainScene = new Scene(borderPane, 300, 300);
       
+      //Build editScene ###NEW###
+  
+      leTimezone = new Label("Timezone?");
+      leTime = new Label("Time?");
+      leDate = new Label("Date?");
+      set = new Button("Set Clock");
+      set.setOnAction(event ->{
+         try{
+            d = new Date(uDay.getValue(),uMonth.getValue(),uYear.getValue());
+            t = new Time(uHour.getValue(),uMin.getValue(),false,d);
+            System.out.print("Yes");
+            Thread thread = new Thread(new Runnable() {
+         
+            public void run(){
+                startTime(t);
+                }
+             });
+             thread.start();
+            stage.setScene(mainScene);
+         }catch(NumberFormatException e){
+            System.out.print("Yes?");
+         }
+      });
+
+      uHour = new Spinner(1,12,1);
+      uMin = new Spinner(0,59,0);
+      uDay = new Spinner(1,31,1);
+      uMonth = new Spinner(1,12,1);
+      uYear = new Spinner(2000,2050,2000);
+      
+      uHour.setEditable(false);
+      uHour.setMinWidth(10);
+      uHour.setMaxWidth(100);
+      uHour.setPrefWidth(53);
+      
+      uMin.setEditable(false);
+      uMin.setMinWidth(10);
+      uMin.setMaxWidth(100);
+      uMin.setPrefWidth(55);
+      
+      uMonth.setEditable(false);
+      uMonth.setMinWidth(10);
+      uMonth.setMaxWidth(100);
+      uMonth.setPrefWidth(53);
+      
+      uDay.setEditable(false);
+      uDay.setMinWidth(10);
+      uDay.setMaxWidth(100);
+      uDay.setPrefWidth(55);
+      
+      uYear.setEditable(false);
+      uYear.setMinWidth(10);
+      uYear.setMaxWidth(100);
+      uYear.setPrefWidth(70);
+      
+      
+      timezHbox = new HBox(leTimezone);
+      timeHbox = new HBox(leTime,uHour,uMin);
+      dateHbox = new HBox(leDate,uMonth,uDay,uYear);
+      
+      eVBox = new VBox(25,timezHbox,timeHbox,dateHbox,set);
+      
+      BorderPane eBorderPane = new BorderPane();
+      eBorderPane.setTop(menubar);
+      eBorderPane.setCenter(eVBox);
+      
+      editScene = new Scene(eBorderPane, 220, 200);
+      //END editScene
+      
+      
       stage.setTitle("A Clock");
-      stage.setScene(mainScene);
+      stage.setScene(editScene);
       stage.show();
       
       
@@ -114,6 +190,22 @@ public class Clock extends Application{
       
       displayMenu.getItems().add(menuDisplay);
       
+   }
+   
+   public void startTime(Time t){
+      int pMin;
+      int pHour;
+      int i=0;
+      
+       while(i<1){
+          pMin=t.getM();
+          pHour=t.getH();
+          t.advance();
+          if(pMin<t.getM()){
+          time=Integer.toString(t.getH()) + ":" + Integer.toString(t.getM());
+          lmTime.setText(time);
+          }
+       }
    }
    
    
