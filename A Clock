@@ -1,1 +1,120 @@
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.BorderPane;
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Spinner;
+import javafx.scene.shape.Circle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
+public class Clock extends Application{
+   //Variables
+   String time;
+   String dn;
+   String tz;
+   String date;
+   
+   //Scenes
+   private Scene mainScene,editScene,displayScene;
+   
+   //MenuBar variables
+   private MenuBar menubar;
+   
+   private Menu editMenu;
+   private MenuItem menuEdit;
+   
+   private Menu displayMenu;
+   private MenuItem menuDisplay;
+   
+   private Menu settings;
+   
+   //mainScene variables
+   private Label lmTime,lmDn,lmTz,lmDate;
+   private VBox mVBox;
+   private HBox mHBox;
+   
+   //editScene variables
+   private Label leTimezone,leTime,leDate;
+   private Button set;
+   private Spinner<String> uTimzone,uDn,uMonth;
+   private Spinner<Integer> uHour,uMin,uDay,uYear;
+   
+   //displayScene variables
+   
+   public static void main(String[] args) throws Exception{
+      launch(args);
+   }
+   
+   @Override
+   public void start(Stage stage){
+      
+      //Build menubar
+      menubar= new MenuBar();
+      
+      buildEditMenu(stage);
+      buildDisplayMenu(stage);
+      
+      menubar.getMenus().add(editMenu);
+      menubar.getMenus().add(displayMenu);
+      
+      //Build mainScene
+      lmTime= new Label(time);
+      lmDn = new Label(dn);
+      lmTz = new Label(tz);
+      lmDate = new Label(date);
+      mHBox = new HBox(lmDn, lmTz);
+      mVBox = new VBox(lmTime, mHBox, lmDate);
+      BorderPane borderPane = new BorderPane();
+      borderPane.setTop(menubar);
+      borderPane.setCenter(mVBox);
+      mainScene = new Scene(borderPane, 300, 300);
+      
+      stage.setTitle("A Clock");
+      stage.setScene(mainScene);
+      stage.show();
+      
+      
+   }
+   
+   //Edit Menu Bar
+   public void buildEditMenu(Stage stage){
+      editMenu= new Menu("Edit");
+      
+      menuEdit = new MenuItem("Time/Date");
+      
+      menuEdit.setOnAction(event ->{
+               stage.setScene(editScene);
+      });
+      
+      editMenu.getItems().add(menuEdit);
+      
+   }
+   
+   //Display Menu Bar
+   public void buildDisplayMenu(Stage stage){
+      displayMenu = new Menu("Display");
+      
+      menuDisplay = new MenuItem("Customization");
+      
+      menuDisplay.setOnAction(event ->{
+                  stage.setScene(displayScene);
+      });
+      
+      displayMenu.getItems().add(menuDisplay);
+      
+   }
+   
+   
+}
