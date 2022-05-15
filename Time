@@ -10,10 +10,13 @@ public class Time extends Date {
    
    Date d= new Date();
    
-   //Constructors
-   
-
-	
+   //Constructor w/o date needed
+   	public Time(int x, int y, boolean t){
+		this.h=x;
+		this.m=y;
+		this.dn=t;
+	}
+   //Constructors with date needed
 	public Time(int x, int y, boolean t, Date date){
 		this.h=x;
 		this.m=y;
