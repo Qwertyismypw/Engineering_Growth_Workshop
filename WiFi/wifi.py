@@ -32,7 +32,7 @@ while current_log <= log_count:
     else:
         stored_wifi[n][0] += 1
         stored_wifi[n][1][0].append(s)
-    print (stored_wifi)
+    #print (stored_wifi)
     time.sleep(logging_time)
     current_log += 1
 
